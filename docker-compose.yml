@@ -1,0 +1,42 @@
+version: '3.3'
+services:
+  mysql-order:
+    container_name: mysql-order
+    image: mysql:8.2
+    restart: always
+    environment:
+      MYSQL_DATABASE: order
+      MYSQL_USER: 'marcus'
+      MYSQL_PASSWORD: '1234'
+      MYSQL_ROOT_PASSWORD: '1234'
+    ports:
+      - '3307:3306'
+      # Where our data will be persisted
+    volumes:
+      - ./mysql_order:/var/lib/mysql
+
+  mysql-inventory:
+    container_name: mysql-inventory
+    image: mysql:8.2
+    restart: always
+    environment:
+      MYSQL_DATABASE: inventory
+      MYSQL_USER: 'marcus'
+      MYSQL_PASSWORD: '1234'
+      MYSQL_ROOT_PASSWORD: '1234'
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql_inventory:/var/lib/mysql
+
+  ## Mongo Docker Compose Config
+  mongo:
+    container_name: mongo
+    image: mongo:4.4.14-rc0-focal
+    restart: always
+    ports:
+      - "27017:27017"
+    expose:
+      - "27017"
+    volumes:
+      - ./mongo-data:/data/db

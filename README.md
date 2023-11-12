@@ -11,3 +11,10 @@ Comecei o projeto organizando a aplicação em três módulos distintos, cada um
 
 Além disso, criei o arquivo **docker-compose** para executar os containeres com as instâncias do MySQL e MongoDB que estão sendo utilizadas. Isso demonstra a versatilidade do emprego de microsserviços, uma vez que, além de possuírem bases de dados distintas, operam com sua própria instância de dados.
 
+###  [ Commits: 'product-service implementation' ]
+
+
+Desenvolvi as funcionalidades para salvar e consultar produtos no documento "produto" do Mongo.
+
+
+Além disso, desenvolvi um teste de integração para verificar se a criação de um produto ocorre com sucesso. Para realizar esse teste, utilizei a biblioteca Testcontainers. Essa biblioteca é uma ferramenta em Java que simplifica a escrita de testes de integração. Essa biblioteca possibilita a utilização de instâncias temporárias de bancos de dados e qualquer outra imagem por meio de contêineres Docker externos. Essa abordagem proporciona uma forma flexível e eficaz de realizar testes de integração em nossos projetos.

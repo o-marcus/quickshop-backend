@@ -41,8 +41,14 @@ No Spring, podemos estabelecer a comunicação entre microsserviços tanto de ma
 
 Também, consertei o RequestMapping dos serviços, pois estavam todos estavam apontando para "/api/produto".
 
-###  [ Commits: 'add eureka/netflix service discovery server ' ]
+###  [ Commits: 'add eureka/netflix service discovery server' ]
 
 Ao executar uma aplicação Spring Boot, é comum ter várias instâncias do mesmo serviço, com as portas atribuídas aleatoriamente. Para acessar essas novas portas, a solução é empregar um **'service-discovery server'** para registrar nossos serviços. Cada serviço se registra nesse servidor, solicitando uma cópia atualizada dos registros para efetuar requisições.
 
 Nesse commit, implementei o serviço de descoberta **Eureka/Netflix**.
+
+###  [ Commits: 'add api-gateway pattern' ]
+
+O padrão arquitetural do **API Gateway** desempenha um papel fundamental como ponto de entrada para as solicitações em nossa aplicação. Ele assume a responsabilidade de receber e encaminhar essas requisições para seus destinos apropriados, com base nos caminhos (Path) fornecidos pela URI. Embora apresente uma variedade de utilidades, neste projeto, seu principal propósito é simplificar o acesso às APIs.
+
+Dada a execução simultânea de vários microsserviços, optei por manter a maioria dos roteamentos como comentários, mantendo apenas o "product-service" como configuração padrão no arquivo application.properties. Essa abordagem visa aprimorar a clareza e a simplicidade na gestão das solicitações em um ambiente complexo de microsserviços.

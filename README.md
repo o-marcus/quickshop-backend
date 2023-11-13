@@ -18,3 +18,8 @@ Desenvolvi as funcionalidades para salvar e consultar produtos no documento "pro
 
 
 Além disso, desenvolvi um teste de integração para verificar se a criação de um produto ocorre com sucesso. Para realizar esse teste, utilizei a biblioteca Testcontainers. Essa biblioteca é uma ferramenta em Java que simplifica a escrita de testes de integração. Essa biblioteca possibilita a utilização de instâncias temporárias de bancos de dados e qualquer outra imagem por meio de contêineres Docker externos. Essa abordagem proporciona uma forma flexível e eficaz de realizar testes de integração em nossos projetos.
+
+###  [ Commits: 'order-service implementation' ]
+
+
+Desenvolvi as entidades para as tabelas **pedido** e **detalhe** no OrderService. A tabela detalhe armazena detalhes sobre um pedido.

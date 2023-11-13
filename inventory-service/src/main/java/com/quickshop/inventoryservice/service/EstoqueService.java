@@ -44,4 +44,8 @@ public class EstoqueService {
         }
         repository.saveAll(decremented);
     }
+
+    public List<Estoque> getAlEstoque() {
+        return repository.findAll();
+    }
 }

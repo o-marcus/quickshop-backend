@@ -31,3 +31,12 @@ Desenvolvi duas funcionalidades: uma destinada a **verificar a disponibilidade d
 Para viabilizar essas funcionalidades, introduzi a interface **DecrementEstoqueUseCase** . Essa interface desempenha um papel essencial ao possibilitar a atualização do estoque com as novas informações fornecidas.  Essa abordagem oferece flexibilidade, permitindo ajustar a implementação da atualização do estoque sem a necessidade de modificar diretamente o código já desenvolvido.
 
 Esse é um princípio conhecido como o **"Princípio do Aberto/Fechado"** que estabelece que as classes devem ser fechadas para modificações e abertas para extensões. Esse conceito sugere que, ao adicionar novas funcionalidades a um sistema, isso deve ser feito sem modificar o código-fonte existente. Em vez disso, a extensão ocorre por meio da introdução de novas classes ou módulos, mantendo a integridade das implementações existentes.
+
+###  [ Commits: 'order-service > inventory-service' communication' ]
+
+
+Em um sistema distribuído, a comunicação é uma condição essencial. Neste commit, estabeleci a comunicação entre o serviço de pedidos e o serviço de estoque.
+
+No Spring, podemos estabelecer a comunicação entre microsserviços tanto de maneira síncrona quanto assíncrona. Estabelecemos essa comunicação com a inclusão da biblioteca  biblioteca **WebFlux**. E nos dá acesso a classe **WebClient**, que é responsável por fazer requisições ao serviço de estoque.
+
+Também, consertei o RequestMapping dos serviços, pois estavam todos estavam apontando para "/api/produto".

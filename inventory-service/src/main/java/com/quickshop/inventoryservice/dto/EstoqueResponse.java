@@ -18,5 +18,6 @@ import java.util.List;
 @Data
 public class EstoqueResponse {
     private String nomeProduto;
-    Boolean isInEstoque;
+    private int quantidade;
+    private Boolean isInEstoque;
 }

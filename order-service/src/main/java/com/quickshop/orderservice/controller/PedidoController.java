@@ -10,14 +10,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/produto")
+@RequestMapping("/api/pedido")
 @AllArgsConstructor
 public class PedidoController {
 
     private final PedidoService service;
+
     @PostMapping
-    public void fazerPedido(@RequestBody PedidoRequest request) {
-        service.savePedido(request);
+    public Boolean fazerPedido(@RequestBody PedidoRequest request) {
+        try {
+            service.savePedido(request);
+            return true;
+        }
+        catch (IllegalArgumentException exception) {
+            return false;
+        }
     }
 
 }

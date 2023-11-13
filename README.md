@@ -23,3 +23,11 @@ Além disso, desenvolvi um teste de integração para verificar se a criação d
 
 
 Desenvolvi as entidades para as tabelas **pedido** e **detalhe** no OrderService. A tabela detalhe armazena detalhes sobre um pedido.
+
+###  [ Commits: 'inventory-service implementation' ]
+
+Desenvolvi duas funcionalidades: uma destinada a **verificar a disponibilidade de um produto no estoque** e outra voltada para a **atualização da quantidade disponível de produtos**.  Esta última é baseada em uma requisição que indica a nova quantidade associada a cada código de produto no estoque.
+
+Para viabilizar essas funcionalidades, introduzi a interface **DecrementEstoqueUseCase** . Essa interface desempenha um papel essencial ao possibilitar a atualização do estoque com as novas informações fornecidas.  Essa abordagem oferece flexibilidade, permitindo ajustar a implementação da atualização do estoque sem a necessidade de modificar diretamente o código já desenvolvido.
+
+Esse é um princípio conhecido como o **"Princípio do Aberto/Fechado"** que estabelece que as classes devem ser fechadas para modificações e abertas para extensões. Esse conceito sugere que, ao adicionar novas funcionalidades a um sistema, isso deve ser feito sem modificar o código-fonte existente. Em vez disso, a extensão ocorre por meio da introdução de novas classes ou módulos, mantendo a integridade das implementações existentes.

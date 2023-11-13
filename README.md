@@ -40,3 +40,9 @@ Em um sistema distribuído, a comunicação é uma condição essencial. Neste c
 No Spring, podemos estabelecer a comunicação entre microsserviços tanto de maneira síncrona quanto assíncrona. Estabelecemos essa comunicação com a inclusão da biblioteca  biblioteca **WebFlux**. E nos dá acesso a classe **WebClient**, que é responsável por fazer requisições ao serviço de estoque.
 
 Também, consertei o RequestMapping dos serviços, pois estavam todos estavam apontando para "/api/produto".
+
+###  [ Commits: 'add eureka/netflix service discovery server ' ]
+
+Ao executar uma aplicação Spring Boot, é comum ter várias instâncias do mesmo serviço, com as portas atribuídas aleatoriamente. Para acessar essas novas portas, a solução é empregar um **'service-discovery server'** para registrar nossos serviços. Cada serviço se registra nesse servidor, solicitando uma cópia atualizada dos registros para efetuar requisições.
+
+Nesse commit, implementei o serviço de descoberta **Eureka/Netflix**.

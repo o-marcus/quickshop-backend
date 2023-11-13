@@ -1,7 +1,9 @@
 package com.quickshop.orderservice.model;
 
 import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
 import lombok.*;
+import org.springframework.data.jpa.repository.Modifying;
 
 import java.math.BigDecimal;
 
@@ -15,7 +17,6 @@ public class Detalhe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false, updatable = false, unique = true, name = "nome_produto")
     private String nomeProduto;
     private int quantidade;
     private BigDecimal preco;

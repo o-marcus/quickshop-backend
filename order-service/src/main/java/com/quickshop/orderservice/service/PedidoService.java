@@ -25,15 +25,15 @@ public class PedidoService {
 
     private final PedidoRepository repository;
     @Autowired
-    private WebClient webClient;
+    private WebClient.Builder webClientBuilder;
 
     public void savePedido(PedidoRequest request) throws IllegalArgumentException {
         Pedido pedido = new Pedido();
         List<Detalhe> detalhes = mapDetalheRequestToDetalhe(request.getDetalhes());
         pedido.setCodigo(String.valueOf(UUID.randomUUID()));
         pedido.setDetalhes(detalhes);
-        Boolean result = webClient.put()
-                .uri("http://localhost:8082/api/estoque")
+        Boolean result = webClientBuilder.build().put()
+                .uri("http://inventory-service/api/estoque")
                 .bodyValue(mapDetalheToEstoqueRequest(pedido.getDetalhes()))
                 .retrieve()
                 .bodyToMono(Boolean.class)

@@ -1,5 +1,5 @@
-##  QuicksShop Backend Repository
-Bem vindo ao repositório do Quickshop, uma pequena aplicação desenvolvida com Spring Boot + Java para aplicar 
+#  QuicksShop Backend Repository
+Bem vindo ao repositório do Quickshop 👋, uma pequena aplicação desenvolvida com Spring Boot + Java para aplicar 
 conceitos e padrões importantes na criação de microsserviços.
 
 Ao longo dos commits, estarei fazendo comentários detalhados sobre as alterações realizadas no projeto aqui no README.
@@ -7,6 +7,7 @@ Vou explicar por que cada alteração é importante para o desenvolvimento e apr
 Estou à disposição para discussões e esclarecimentos sobre alterações específicas durante o processo de desenvolvimento e revisão.
 
 ###  [ Commits: 'First Commit' e 'add docker-compose file' ]
+
 Comecei o projeto organizando a aplicação em três módulos distintos, cada um representando um microsserviço a ser implementado. O primeiro é o **OrderService**, encarregado de lidar com a realização de pedidos. Em seguida, temos o **InventoryService**, responsável por verificar a disponibilidade de produtos no estoque. Por fim, o terceiro módulo é o **ProductService**, que atuará como um catálogo para consultar informações sobre todos os produtos na aplicação.
 
 Além disso, criei o arquivo **docker-compose** para executar os containeres com as instâncias do MySQL e MongoDB que estão sendo utilizadas. Isso demonstra a versatilidade do emprego de microsserviços, uma vez que, além de possuírem bases de dados distintas, operam com sua própria instância de dados.
@@ -52,3 +53,9 @@ Nesse commit, implementei o serviço de descoberta **Eureka/Netflix**.
 O padrão arquitetural do **API Gateway** desempenha um papel fundamental como ponto de entrada para as solicitações em nossa aplicação. Ele assume a responsabilidade de receber e encaminhar essas requisições para seus destinos apropriados, com base nos caminhos (Path) fornecidos pela URI. Embora apresente uma variedade de utilidades, neste projeto, seu principal propósito é simplificar o acesso às APIs.
 
 Dada a execução simultânea de vários microsserviços, optei por manter a maioria dos roteamentos como comentários, mantendo apenas o "product-service" como configuração padrão no arquivo application.properties. Essa abordagem visa aprimorar a clareza e a simplicidade na gestão das solicitações em um ambiente complexo de microsserviços.
+
+###  [ Commits: 'Arquitetura orientada a eventos usando Kafka' ]
+
+Para desenvolvermos **arquiteturas orientadas a eventos**, precisamos utilizar ferramentas que permitam a **comunicação assíncrona** entre microsserviços. De maneira resumida, o **Apache Kafka** nos possibilita criar eventos que são enviados de um produtor (quem emite os eventos) para um consumidor (quem consome esses eventos). Quem facilita essa comunicação é um servidor de Streaming de dados chamado **Broker**.
+
+Nesse commit, alterei um pouco o **serviço de pedidos**, para, assim que um pedido fosse realizado com sucesso, ele transmitisse um *evento assíncrono* para *NotificationService*. Esse serviço, que não foi completamente implementado, vai notificar de alguma forma o usuário mais adiante em outros commits. Por enquanto, ele está apenas fazendo um simples log.

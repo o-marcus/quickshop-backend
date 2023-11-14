@@ -64,5 +64,5 @@ Nesse commit, alterei um pouco o **serviço de pedidos**, para, assim que um ped
 A imagem abaixo ilustra bem tudo que usamos até essa parte do projeto. Pode-se ver que o ator cliente interage diretamente com *Api Gateway*, que redireciona a chamada para o serviço escolhido dependendo do *Path* passado. A seguir, temos a instância do **serviço de produto** com o *MongoDB*, a instância do **serviço de estoque** com o *MySQL* e a instância do **serviço de Pedido** com outra instância do *MySQL*.
 
 O microsserviço pedido se comunica com o de Estoque de forma síncrona usando WebClient. Além disso, o microserviço de pedido também se comunica com a **microsserviço de Notificação** assincronamente com *Kafka*. Por fim, o *Netflix/Eureka* fornece um registro de todas as portas geradas na aplicação para os microsserviços que se inscreveram nele.
-![img_1.png](img_1.png)
+![img_1.png](architecture_microservices.png)
 
